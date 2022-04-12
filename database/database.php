@@ -37,10 +37,9 @@ class DB {
     }
 
     public function add($table, $params, $values)
-    {
-        // echo 'INSERT INTO '.$table.' VALUES (:name, :description, :completed)';
-        // echo 'INSERT INTO '.$table.' VALUES (:'.implode(", :", $values).')';
+    {        
         $stmt = $this->conn->prepare('INSERT INTO '.$table.'('.implode(',',$params).') VALUES (:'.implode(', :', $params).')');
+        
         $stmt->execute($values);
     }
 

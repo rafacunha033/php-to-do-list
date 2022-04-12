@@ -7,13 +7,14 @@
     <title>TO-DO LIST</title>
 </head>
 <body>
-
-   
     
-    <form action="source/addTodo.php" method="POST">
-        <input type="text" name="todo" placeholder="Enter your todo">
+    <form action="source/todo/addTodo.php" method="POST">
+        <input type="text" name="name" placeholder="Enter your todo">
+        <input type="text" name="description" placeholder="Describe your task">
 
         <input type="submit" value="Create">
     </form>
+
+
 </body>
 </html>
