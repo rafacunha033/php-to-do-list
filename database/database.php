@@ -30,11 +30,25 @@ class DB {
                 $this->user, $this->password
             );
 
-            echo 'Connection made';
+            // echo 'Connection made';
         } catch(Exception $e) {
             echo $e->getMessage();
         }
     }
+    
+    public function index($table, $params)
+    {
+        if($params === false) {            
+            $stmt = $this->conn->prepare('SELECT * FROM '.$table);
+        } else {
+            $stmt = $this->conn->prepare('SELECT '.implode(', ',$params).' FROM '.$table);
+        }
+        
+        $stmt->execute();
+        $fetchAll = $stmt->fetchAll();
+        
+        return $fetchAll;
+    }   
 
     public function add($table, $params, $values)
     {        

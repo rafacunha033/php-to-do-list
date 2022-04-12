@@ -15,6 +15,16 @@
         <input type="submit" value="Create">
     </form>
 
+    <?php 
+        include_once 'source/todo/showTodo.php';
 
+        foreach($todos as $todo) {
+            echo $todo['name'];
+            echo '<hr>';
+        }
+        // var_dump($todos);
+    ?>
+
+    
 </body>
 </html>
